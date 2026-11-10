@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class EspacionParqueo {
+public class EspacioParqueo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

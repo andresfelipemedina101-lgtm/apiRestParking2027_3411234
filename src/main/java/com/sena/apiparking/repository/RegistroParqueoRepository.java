@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.sena.apiparking.model.EspacionParqueo;
+import com.sena.apiparking.model.EspacioParqueo;
 import com.sena.apiparking.model.RegistroParqueo;
 
 import jakarta.persistence.LockModeType;
@@ -19,7 +19,7 @@ public interface RegistroParqueoRepository extends JpaRepository<RegistroParqueo
 	boolean existsByVehiculoPlacaAndFechaSalidaIsNull(@Param("placa") String placa);
 
 	@Query("select count(r) > 0 from RegistroParqueo r where r.espacio = :espacio")
-	boolean existsBy(@Param("espacio") EspacionParqueo espacio);
+	boolean existsBy(@Param("espacio") EspacioParqueo espacio);
 
 	Optional<RegistroParqueo> findByVehiculoPlacaAndFechaSalidaIsNull(String placa);
 

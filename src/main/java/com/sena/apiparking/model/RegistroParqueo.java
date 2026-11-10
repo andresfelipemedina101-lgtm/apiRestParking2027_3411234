@@ -34,7 +34,7 @@ public class RegistroParqueo {
 	private Vehiculo vehiculo;
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "espacio_id", nullable = false)
-	private EspacionParqueo espacio;
+	private EspacioParqueo espacio;
 	@Column(nullable = false)
 	private LocalDateTime fechaEntrada;
 	private LocalDateTime fechaSalida;
