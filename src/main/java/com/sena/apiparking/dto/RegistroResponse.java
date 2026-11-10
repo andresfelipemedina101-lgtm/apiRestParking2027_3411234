@@ -1,9 +1,9 @@
-package com.sena.apiparkink.dto;
+package com.sena.apiparking.dto;
 
 import java.time.LocalDateTime;
 
-import com.sena.apiparkink.model.RegistroParqueo;
-import com.sena.apiparkink.model.TipoVehiculo;
+import com.sena.apiparking.model.RegistroParqueo;
+import com.sena.apiparking.model.TipoVehiculo;
 
 public record RegistroResponse(Long idRegistro, String placa, TipoVehiculo tipoVehiculo, Integer numeroEspacio,
 		LocalDateTime fechaEntrada, LocalDateTime fechaSalida, Double valorPagado, CobroDetalle cobro) {

@@ -1,6 +1,6 @@
-package com.sena.apiparkink.dto;
+package com.sena.apiparking.dto;
 
-import com.sena.apiparkink.model.TipoVehiculo;
+import com.sena.apiparking.model.TipoVehiculo;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

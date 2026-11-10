@@ -1,4 +1,4 @@
-package com.sena.apiparkink;
+package com.sena.apiparking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

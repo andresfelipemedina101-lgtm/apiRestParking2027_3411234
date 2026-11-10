@@ -1,4 +1,4 @@
-package com.sena.apiparkink.model;
+package com.sena.apiparking.model;
 
 import java.util.List;
 

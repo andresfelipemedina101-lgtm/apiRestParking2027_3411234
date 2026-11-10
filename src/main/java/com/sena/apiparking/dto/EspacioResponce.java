@@ -1,8 +1,8 @@
-package com.sena.apiparkink.dto;
+package com.sena.apiparking.dto;
 
-import com.sena.apiparkink.model.EspacionParqueo;
-import com.sena.apiparkink.model.EstadoEspacio;
-import com.sena.apiparkink.model.TipoVehiculo;
+import com.sena.apiparking.model.EspacionParqueo;
+import com.sena.apiparking.model.EstadoEspacio;
+import com.sena.apiparking.model.TipoVehiculo;
 
 public record EspacioResponce(Long idEspacio, Integer numero, TipoVehiculo tipo, EstadoEspacio estado) {
 	

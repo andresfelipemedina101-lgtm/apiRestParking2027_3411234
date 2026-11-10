@@ -1,4 +1,4 @@
-package com.sena.apiparkink.repository;
+package com.sena.apiparking.repository;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.sena.apiparkink.model.Vehiculo;
+import com.sena.apiparking.model.Vehiculo;
 
 import jakarta.persistence.LockModeType;
 

@@ -1,14 +1,14 @@
-package com.sena.apiparkink.model;
+package com.sena.apiparking.model;
 
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,28 +17,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tarifas")
+@Table(name = "registro_parqueo")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Tarifa {
+
+public class RegistroParqueo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_tarifa;
-	@Enumerated(EnumType.STRING)
+	private Long id_registro;
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "vehiculo_id", nullable = false)
+	private Vehiculo vehiculo;
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "espacio_id", nullable = false)
+	private EspacionParqueo espacio;
 	@Column(nullable = false)
-	private TipoVehiculo tipo;
-	@Column(nullable = false)
-	private Long valorHora;
-	@Column(nullable = false)
-	private Long valorFraccion;
-	@Column(nullable = false)
-	private Integer fraccionMinutos;
-	@Column(nullable = false)
-	private LocalDateTime vigenteDesde;
-	private LocalDateTime vigenteHasta;
+	private LocalDateTime fechaEntrada;
+	private LocalDateTime fechaSalida;
+	private Double valorPagadp;
 
 }

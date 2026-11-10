@@ -1,4 +1,4 @@
-package com.sena.apiparkink.repository;
+package com.sena.apiparking.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.sena.apiparkink.model.Tarifa;
-import com.sena.apiparkink.model.TipoVehiculo;
+import com.sena.apiparking.model.Tarifa;
+import com.sena.apiparking.model.TipoVehiculo;
 
 import jakarta.persistence.LockModeType;
 

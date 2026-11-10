@@ -1,9 +1,9 @@
-package com.sena.apiparkink.service;
+package com.sena.apiparking.service;
 
 import org.springframework.stereotype.Service;
 
-import com.sena.apiparkink.repository.EspacioParqueoRepository;
-import com.sena.apiparkink.repository.RegistroParqueoRepository;
+import com.sena.apiparking.repository.EspacioParqueoRepository;
+import com.sena.apiparking.repository.RegistroParqueoRepository;
 
 import lombok.RequiredArgsConstructor;
 
