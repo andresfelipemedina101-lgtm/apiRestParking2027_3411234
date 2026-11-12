@@ -39,5 +39,9 @@ public class RegistroParqueo {
 	private LocalDateTime fechaEntrada;
 	private LocalDateTime fechaSalida;
 	private Double valorPagadp;
+	public void setValorPagado(double valorTotal) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
