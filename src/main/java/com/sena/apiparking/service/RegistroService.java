@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ResgistroService {
+public class RegistroService {
 	private final RegistroParqueoRepository registroRepo;
 	private final EspacioParqueoRepository espacioRepo;
 	private final VehiculoRepository vehiculoRepo;

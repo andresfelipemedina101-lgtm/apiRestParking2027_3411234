@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sena.apiparking.dto.EspacioLoteRequest;
 import com.sena.apiparking.dto.EspacioRequest;
-import com.sena.apiparking.dto.EspacioResponce;
+import com.sena.apiparking.dto.EspacioResponse;
 import com.sena.apiparking.exception.ApiException;
 import com.sena.apiparking.model.EspacioParqueo;
 import com.sena.apiparking.model.EstadoEspacio;
@@ -29,19 +29,19 @@ public class EspacioService {
 	private final RegistroParqueoRepository registroRepo;
 
 	@Transactional	
-	public EspacioResponce crear(EspacioRequest req) {
+	public EspacioResponse crear(EspacioRequest req) {
 		if (espacioRepo.existsByNumero(req.numero())) {
 			throw ApiException.conflict("Ya existe el espacio numero " + req.numero());
 		}
 
 		EspacioParqueo e = EspacioParqueo.builder().numero(req.numero()).tipo(req.tipo()).build();
-		return EspacioResponce.de(espacioRepo.save(e));
+		return EspacioResponse.de(espacioRepo.save(e));
 
 	}
 
 	@Transactional
 
-	public List<EspacioResponce> crearLote(EspacioLoteRequest req) {
+	public List<EspacioResponse> crearLote(EspacioLoteRequest req) {
 		if (req.desde() > req.hasta()) {
 			throw ApiException.badRequest("'desde' no puede ser mayor que 'hasta'");
 		}
@@ -55,23 +55,23 @@ public class EspacioService {
 			}
 			nuevos.add(EspacioParqueo.builder().numero(n).tipo(req.tipo()).build());
 		}
-		return espacioRepo.saveAll(nuevos).stream().map(EspacioResponce::de).toList();
+		return espacioRepo.saveAll(nuevos).stream().map(EspacioResponse::de).toList();
 	}
 
 	@Transactional(readOnly = true)
-	public List<EspacioResponce> Listar(TipoVehiculo tipo, EstadoEspacio estado) {
+	public List<EspacioResponse> Listar(TipoVehiculo tipo, EstadoEspacio estado) {
 		return espacioRepo.findAll(Sort.by(EspacioParqueo::getNumero)).stream()
 				.filter(e -> tipo == null || e.getTipo() == tipo).filter(e -> estado == null || e.getEstado() == estado)
-				.map(EspacioResponce::de).toList();
+				.map(EspacioResponse::de).toList();
 	}
 
 	@Transactional(readOnly = true)
-	public EspacioResponce obtener(Long id) {
-		return EspacioResponce.de(buscar(id));
+	public EspacioResponse obtener(Long id) {
+		return EspacioResponse.de(buscar(id));
 	}
 
 	@Transactional
-	private EspacioResponce actualizar(Long id, EspacioRequest req) {
+	private EspacioResponse actualizar(Long id, EspacioRequest req) {
 		EspacioParqueo e = buscar(id);
 		if (e.getEstado() == EstadoEspacio.AOCUPADO) {
 			throw ApiException.conflict("No se puede modificar un espacio ocupado");
@@ -81,7 +81,7 @@ public class EspacioService {
 		}
 		e.setNumero(req.numero());
 		e.setTipo(req.tipo());
-		return EspacioResponce.de(e);
+		return EspacioResponse.de(e);
 	}
 
 	@Transactional
